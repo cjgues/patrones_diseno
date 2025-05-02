@@ -3,58 +3,58 @@ package com.mindwork.ejercicio_2.builder;
 import com.mindwork.ejercicio_2.modelo.DocumentoPdf;
 
 public class PdfBuilder {
-    private boolean titulo;
-    private boolean encabezado;
-    private boolean cuerpo;
-    private boolean tabla;
-    private boolean piePagina;
+    private String titulo;
+    private String encabezado;
+    private String  cuerpo;
+    private String tabla;
+    private String piePagina;
 
     public DocumentoPdf build() {
         return new DocumentoPdf(this);
     }
 
-    public PdfBuilder titulo() {
-        this.titulo = true;
-        return this;
-    }
-
-    public PdfBuilder encabezado() {
-        this.encabezado = true;
-        return this;
-    }
-
-    public PdfBuilder cuerpo() {
-        this.cuerpo = true;
-        return this;
-    }
-
-    public PdfBuilder tabla() {
-        this.tabla = true;
-        return this;
-    }
-
-    public PdfBuilder piePagina() {
-        this.piePagina = true;
-        return this;
-    }
-
-    public boolean isTitulo() {
+    public String getTitulo() {
         return titulo;
     }
 
-    public boolean isEncabezado() {
+    public PdfBuilder setTitulo(String titulo) {
+        this.titulo = titulo;
+        return this;
+    }
+
+    public String getEncabezado() {
         return encabezado;
     }
 
-    public boolean isCuerpo() {
+    public PdfBuilder setEncabezado(String encabezado) {
+        this.encabezado = encabezado;
+        return this;
+    }
+
+    public String getCuerpo() {
         return cuerpo;
     }
 
-    public boolean isTabla() {
+    public PdfBuilder setCuerpo(String cuerpo) {
+        this.cuerpo = cuerpo;
+        return this;
+    }
+
+    public String getTabla() {
         return tabla;
     }
 
-    public boolean isPiePagina() {
+    public PdfBuilder setTabla(String tabla) {
+        this.tabla = tabla;
+        return this;
+    }
+
+    public String getPiePagina() {
         return piePagina;
+    }
+
+    public PdfBuilder setPiePagina(String piePagina) {
+        this.piePagina = piePagina;
+        return this;
     }
 }
