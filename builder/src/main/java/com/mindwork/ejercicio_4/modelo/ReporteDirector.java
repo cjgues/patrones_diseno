@@ -21,4 +21,19 @@ public class ReporteDirector {
         this.reportBuilder.setFecha(LocalDate.now());
         return this.reportBuilder.build();
     }
+
+    public Reporte construirReporteDetallado(String titulo, String encabezado, String pie, String formato,
+                                             String ... lineas) throws ReporteInvalidadoException {
+        this.reportBuilder.setTitulo(titulo);
+        this.reportBuilder.setEncabezado(encabezado);
+        this.reportBuilder.setPie(pie);
+        this.reportBuilder.setFormato(formato);
+        this.reportBuilder.setFecha(LocalDate.now());
+
+        for (String linea : lineas) {
+            this.reportBuilder.agregarLineaCuerpo(linea);
+        }
+
+        return this.reportBuilder.build();
+    }
 }

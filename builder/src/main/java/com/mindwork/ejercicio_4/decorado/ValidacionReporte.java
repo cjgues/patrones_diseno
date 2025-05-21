@@ -13,6 +13,22 @@ public class ValidacionReporte extends ReporteDirector {
 
     @Override
     public Reporte construirReporteResumen(String titulo, String encabezado, String pie, String formato) throws ReporteInvalidadoException {
+        validacionBasica(titulo, encabezado, pie, formato);
+        return super.construirReporteResumen(titulo, encabezado, pie, formato);
+    }
+
+    @Override
+    public Reporte construirReporteDetallado(String titulo, String encabezado, String pie, String formato, String ... lineas) throws ReporteInvalidadoException {
+        validacionBasica(titulo, encabezado, pie, formato);
+
+        if(lineas.length == 0){
+            throw new ReporteInvalidadoException("No se puede detallar los lineas");
+        }
+
+        return super.construirReporteDetallado(titulo, encabezado, pie, formato, lineas);
+    }
+
+    private void validacionBasica(String titulo, String encabezado, String pie, String formato){
         if (titulo == null || titulo.trim().isEmpty()) {
             throw new IllegalArgumentException("El titulo no puede ser nulo");
         }
@@ -28,7 +44,5 @@ public class ValidacionReporte extends ReporteDirector {
         if (formato == null || formato.trim().isEmpty()) {
             throw new IllegalArgumentException("El formato no puede ser nulo");
         }
-
-        return super.construirReporteResumen(titulo, encabezado, pie, formato);
     }
 }
