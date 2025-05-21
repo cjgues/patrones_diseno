@@ -1,5 +1,7 @@
 package com.mindwork.ejercicio_4.modelo;
 
+import com.mindwork.ejercicio_4.exception.ReporteInvalidadoException;
+
 import java.util.List;
 
 public class Reporte {
@@ -15,7 +17,7 @@ public class Reporte {
                    String encabezado,
                    List<String> cuerpo,
                    String pie,
-                   String formato) {
+                   String formato) throws ReporteInvalidadoException {
         this.titulo = titulo;
         this.fecha = fecha;
         this.encabezado = encabezado;

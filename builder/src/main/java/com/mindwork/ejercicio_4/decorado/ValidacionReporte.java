@@ -1,5 +1,6 @@
 package com.mindwork.ejercicio_4.decorado;
 
+import com.mindwork.ejercicio_4.exception.ReporteInvalidadoException;
 import com.mindwork.ejercicio_4.interfaz.ReportBuilder;
 import com.mindwork.ejercicio_4.modelo.Reporte;
 import com.mindwork.ejercicio_4.modelo.ReporteDirector;
@@ -11,7 +12,7 @@ public class ValidacionReporte extends ReporteDirector {
     }
 
     @Override
-    public Reporte construirReporteResumen(String titulo, String encabezado, String pie, String formato) {
+    public Reporte construirReporteResumen(String titulo, String encabezado, String pie, String formato) throws ReporteInvalidadoException {
         if (titulo == null || titulo.trim().isEmpty()) {
             throw new IllegalArgumentException("El titulo no puede ser nulo");
         }

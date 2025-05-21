@@ -9,13 +9,16 @@ public class Main {
         var reportBuild = new ReportBuildImpl();
         var director = new ValidacionReporte(reportBuild);
 
-        var repote = director.construirReporteResumen("Titulo builder", "Datos de encabezado",
-                "Seccion de pie", "HTML");
-
-        System.out.println("=== Reporte ===");
-        System.out.println("Título: " + repote.getTitulo());
-        System.out.println("Encabezado: " + repote.getEncabezado());
-        System.out.println("Pie: " + repote.getPie());
-        System.out.println("Formato: " + repote.getFormato());
+        try{
+            var repote = director.construirReporteResumen("Titulo builder", "Datos de encabezado",
+                    "Seccion de pie", "HTML");
+            System.out.println("=== Reporte ===");
+            System.out.println("Título: " + repote.getTitulo());
+            System.out.println("Encabezado: " + repote.getEncabezado());
+            System.out.println("Pie: " + repote.getPie());
+            System.out.println("Formato: " + repote.getFormato());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
