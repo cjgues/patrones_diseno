@@ -4,7 +4,6 @@ import com.mindwork.ejercicio_4.exception.ReporteInvalidadoException;
 import com.mindwork.ejercicio_4.modelo.Reporte;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public interface ReportBuilder {
     ReportBuilder setTitulo(String titulo);
