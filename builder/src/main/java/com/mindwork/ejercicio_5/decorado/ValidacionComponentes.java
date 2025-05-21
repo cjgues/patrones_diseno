@@ -1,17 +1,10 @@
 package com.mindwork.ejercicio_5.decorado;
 
-import com.mindwork.ejercicio_5.build.ComputadoraBuild;
 import com.mindwork.ejercicio_5.exceptions.ComponenteException;
 import com.mindwork.ejercicio_5.impl.ComputadoraBuildImpl;
 import com.mindwork.ejercicio_5.modelos.*;
 
 public class ValidacionComponentes extends ComputadoraBuildImpl {
-    private ComputadoraBuild computadoraBuild;
-
-    public ValidacionComponentes() {
-        computadoraBuild = new ComputadoraBuildImpl();
-    }
-
     public Computadora validarComputadoraGaming(String owner, Cpu cpu, Gpu gpu, Hdd hdd, Ram ram) throws ComponenteException {
         if(gpu == null ||
                 (gpu.getMemoria() == null || gpu.getMemoria().isEmpty()) ||
@@ -21,21 +14,12 @@ public class ValidacionComponentes extends ComputadoraBuildImpl {
         validarComputadora(owner, cpu, hdd, ram);
         validacionBase(gpu.getMarca(), "GPU");
 
-        this.computadoraBuild.setCpu(cpu);
-        this.computadoraBuild.setGpu(gpu);
-        this.computadoraBuild.setHdd(hdd);
-        this.computadoraBuild.setRam(ram);
-        this.computadoraBuild.setOwner(owner);
-        return this.computadoraBuild.build();
+        return this.setCpu(cpu).setGpu(gpu).setHdd(hdd).setRam(ram).setOwner(owner).build();
     }
 
     public Computadora validarComputadoraBase(String owner, Cpu cpu, Hdd hdd, Ram ram) throws ComponenteException {
         validarComputadora(owner, cpu, hdd, ram);
-        this.computadoraBuild.setCpu(cpu);
-        this.computadoraBuild.setHdd(hdd);
-        this.computadoraBuild.setRam(ram);
-        this.computadoraBuild.setOwner(owner);
-        return this.computadoraBuild.build();
+        return this.setCpu(cpu).setHdd(hdd).setRam(ram).setOwner(owner).build();
     }
 
     private void validarComputadora(String owner, Cpu cpu, Hdd hdd, Ram ram) throws ComponenteException {

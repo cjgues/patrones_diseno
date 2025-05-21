@@ -16,7 +16,7 @@ public class Main {
                     new Cpu("prueba", LocalDate.now().toString(), "100", "12"),
                     new Gpu("prueba gpu", LocalDate.now().toString(), "4gb", "120"),
                     new Hdd("prueba hdd", null, "120GB", TipoHdd.HDD),
-                    new Ram("Prueba de ram", null, "32 GB", TipoRam.DDR5));
+                    new Ram("Prueba ram", null, "32 GB", TipoRam.DDR5));
             System.out.println("Computadora gaming de " + computadoraGaming.getOwner());
             System.out.println("Con informacion de CPU");
             computadoraGaming.getCpu().mostrarData();
